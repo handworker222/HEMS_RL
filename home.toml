@@ -1,0 +1,61 @@
+####################################################################################################
+# Specify loads and related information in a smart home for HEMS.
+#
+# Even if there is only one load in a group, it must be specified inside an array.
+# The id of each item must be unique. The following ids are reserved: "load".
+#
+# The time `ts` and `tf` refer to the index of a time step (instead of practical time), which starts
+# from 1.
+####################################################################################################
+
+[[CR]]
+id = "CR1"
+P = 0.5
+
+[[CR]]
+id = "CR2"
+P = 0.2
+
+[[AD]]
+id = "AD1"
+Pmin = 0.0
+Pmax = 3.0
+"α" = 0.06
+
+[[AD]]
+id = "AD2"
+Pmin = 1.0
+Pmax = 2.5
+"α" = 0.12
+
+[[AD]]
+id = "AD3"
+Pmin = 0.7
+Pmax = 1.5
+"α" = 0.1
+
+[[SU]]
+id = "SU1"
+P = 2.0
+ts = 18
+tf = 23
+L = 2
+
+[[SU]]
+id = "SU2"
+P = 1.5
+ts = 21
+tf = 24
+L = 2
+
+
+[[SI]]
+id = "SI1"
+P = 10
+ts = 10
+tf = 17
+L = 4
+
+[UtilityGrid]
+Pmax = 1e4  # any large value is OK 
+"β" = 0.5
